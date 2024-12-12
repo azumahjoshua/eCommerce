@@ -170,12 +170,12 @@ export async function loginController(request,response){
         })
 
     } catch (error) {
-        console.log(error)
-        // return response.status(500).json({
-        //     message : error.message || error,
-        //     error : true,
-        //     success : false
-        // })
+        // console.log(error)
+        return response.status(500).json({
+            message : error.message || error,
+            error : true,
+            success : false
+        })
     }
 }
 
@@ -477,7 +477,7 @@ export async function refreshToken(request,response){
         response.cookie('accessToken',newAccessToken,cookiesOption)
 
         return response.json({
-            message : "New Access token generated",
+            message : "New Access Token Generated",
             error : false,
             success : true,
             data : {
@@ -512,7 +512,7 @@ export async function userDetails(request,response){
         })
     } catch (error) {
         return response.status(500).json({
-            message : "Something is wrong",
+            message : "Something is Wrong",
             error : true,
             success : false
         })
