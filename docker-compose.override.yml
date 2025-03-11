@@ -1,0 +1,8 @@
+services:
+  api-server:
+    environment:
+      - $(cat .env | xargs)  # Load environment variables from .env file
+
+volumes:
+  db-data:
+  mongo-data:

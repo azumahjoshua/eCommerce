@@ -22,7 +22,7 @@ app.use(cors({
 }))
 app.use(express.json())
 app.use(cookieParser())
-app.use(morgan())
+app.use(morgan('combined'))
 app.use(helmet({
     crossOriginResourcePolicy : false
 }))
@@ -47,6 +47,7 @@ app.use('/api/order',orderRouter)
 
 connectDB().then(()=>{
     app.listen(PORT,()=>{
+        console.log('MongoDB URI:', process.env.MONGODB_URI);
         console.log("Server is running",PORT)
     })
 })
